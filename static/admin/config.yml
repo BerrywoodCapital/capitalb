@@ -1,0 +1,66 @@
+backend:
+    name: git-gateway
+    branch: master
+
+media_folder: 'static/uploads'
+public_folder: 'uploads'
+collections:
+    - name: 'home'
+      label: 'Home'
+      folder: '_pages/Home'
+      slug: '{{ slug }}'
+      delete: false
+      fields:
+          - { label: Title, name: title, widget: 'string', default: 'Home Page Content' }
+          - { label: Main Text, name: main-text, widget: 'string' }
+          # - { label: Background Image, name: background-image, widget: image }
+          - label: List
+            name: 'list'
+            widget: list
+            fields:
+                - { label: 'Content', name: 'content', widget: 'string' }
+    - name: 'privacy-policy'
+      label: 'Privacy Policy'
+      folder: '_pages/Privacy-Policy'
+      slug: '{{ slug }}'
+      delete: false
+      fields:
+          - { label: Title, name: title, widget: 'string', default: 'Privacy Policy Content' }
+          - { label: Body, name: 'body', widget: markdown }
+          - label: List
+            name: 'list'
+            widget: list
+            fields:
+                - { label: 'Content', name: 'content', widget: 'string' }
+          - { label: 'Change Notice', name: 'change-notice', widget: string }
+    - name: 'about'
+      label: About
+      folder: '_pages/About'
+      slug: '{{slug}}'
+      delete: false
+      fields:
+          - { label: Title, name: title, widget: 'string', default: 'About Content' }
+          - label: About
+            name: about
+            widget: list
+            fields:
+                - { label: 'Item', name: 'item', widget: 'string' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+    - name: 'portfolio'
+      label: Portfolio
+      folder: '_pages/Portfolio'
+      slug: '{{slug}}'
+      delete: false
+      fields:
+          - { label: Title, name: title, widget: 'string', default: 'Portfolio Content' }
+          - label: List
+            name: list
+            widget: list
+            fields:
+                - label: Item
+                  name: item
+                  widget: object
+                  fields:
+                      - { label: 'Logo', name: 'logo', widget: 'image' }
+                      - { label: 'Link', name: 'link', widget: 'string' }
+                      - { label: 'Text', name: 'text', widget: 'string' }
